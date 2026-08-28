@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>วิธีแก้ปัญหาการติดตั้ง Printer บน Windows 11</title>
+<style>
+:root{--bg:#07111f;--panel:#0e1b2d;--text:#f7f9fc;--muted:#aab8ca;--line:rgba(255,255,255,.12);--accent:#61dafb;--accent2:#8b7cff}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;font-family:"Segoe UI","Noto Sans Thai",Tahoma,sans-serif;background:var(--bg);color:var(--text)}
+body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 15% 15%,rgba(97,218,251,.12),transparent 32%),radial-gradient(circle at 85% 80%,rgba(139,124,255,.13),transparent 35%);pointer-events:none}
+.deck{height:100%;position:relative}.slide{position:absolute;inset:0;padding:52px 7vw 76px;display:grid;grid-template-rows:auto 1fr;gap:28px;opacity:0;transform:translateX(35px);transition:.45s ease;pointer-events:none}.slide.active{opacity:1;transform:none;pointer-events:auto}
+.kicker{font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700}.title{font-size:clamp(30px,4vw,58px);line-height:1.08;margin:8px 0 12px;font-weight:800}.subtitle{font-size:clamp(17px,1.6vw,24px);color:var(--muted);line-height:1.55;max-width:900px}
+.cover{display:flex;align-items:center}.cover .content{max-width:1000px}.badge{display:inline-flex;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.05);color:#dbe8f7;font-size:14px;margin-top:20px}
+.content-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;min-height:0;align-items:center}.image-card,.video-card,.text-card{background:rgba(14,27,45,.78);border:1px solid var(--line);border-radius:24px;box-shadow:0 24px 70px rgba(0,0,0,.25);overflow:hidden}.image-card{height:min(66vh,620px);display:flex;align-items:center;justify-content:center;padding:18px}.image-card img{max-width:100%;max-height:100%;object-fit:contain;border-radius:14px}.text-card{padding:30px}.step{font-size:16px;color:var(--accent);font-weight:800;margin-bottom:10px}.text-card h2{font-size:clamp(27px,2.5vw,42px);margin:0 0 16px}.text-card p,.text-card li{font-size:18px;line-height:1.7;color:#d5deea}.text-card ul{padding-left:24px}.note{margin-top:20px;padding:14px 16px;border-left:3px solid var(--accent);background:rgba(97,218,251,.07);color:#cbd7e5;border-radius:8px}
+.video-wrap{display:flex;align-items:center;justify-content:center;height:100%;min-height:420px}.video-card{padding:14px}.video-card video{width:100%;max-height:68vh;border-radius:15px;background:#000}.video-title{padding:10px 6px 4px;color:var(--muted);font-size:14px}
+.overview{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:center}.ov{padding:24px;border:1px solid var(--line);background:rgba(255,255,255,.045);border-radius:20px;min-height:150px}.num{font-size:32px;font-weight:900;color:var(--accent);margin-bottom:10px}.ov h3{margin:0 0 7px;font-size:19px}.ov p{margin:0;color:var(--muted);line-height:1.5}
+.footer{position:fixed;left:7vw;right:7vw;bottom:22px;display:flex;align-items:center;gap:16px;z-index:20}.progress{height:3px;flex:1;background:rgba(255,255,255,.12);border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:.35s}.counter{font-size:13px;color:var(--muted);min-width:52px;text-align:right}.hint{position:fixed;right:7vw;top:24px;color:#8292a8;font-size:12px}
+.nav{position:fixed;right:7vw;bottom:48px;display:flex;gap:8px;z-index:30}.nav button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:rgba(8,18,31,.85);color:#fff;font-size:18px;cursor:pointer}.nav button:hover{background:rgba(255,255,255,.1)}
+@media(max-width:850px){.slide{padding:32px 5vw 80px}.content-grid{grid-template-columns:1fr;gap:16px}.image-card{height:43vh}.overview{grid-template-columns:1fr 1fr}.hint{display:none}.text-card{padding:22px}.text-card p,.text-card li{font-size:16px}}
+</style>
+</head>
+<body>
+<div class="deck">
+<section class="slide active cover">
+ <div class="content"><div class="kicker">Printer Troubleshooting Guide</div><div class="title">วิธีแก้ปัญหาการติดตั้ง Printer<br>บน Windows 11</div><div class="subtitle">คู่มือแบบสไลด์สำหรับไล่ตรวจสอบและติดตั้ง Printer พร้อมภาพประกอบและวิดีโอสาธิต</div><div class="badge">HP LaserJet P1102 • Step-by-Step</div></div>
+</section>
+<section class="slide">
+ <div><div class="kicker">01 / Problem</div><div class="title">อาการของปัญหา</div><div class="subtitle">HP LaserJet P1102 บน Windows 11 ติดตั้ง Driver แล้ว แต่ระบบยังไม่มองเห็นเป็น Printer</div></div>
+ <div class="content-grid">
+  <div class="text-card"><div class="step">อาการที่พบ</div><ul><li>เสียบ USB แล้วเหมือนมี Driver ติดตั้งอยู่ในตัวเครื่อง และมีหน้าต่างติดตั้ง Driver เด้งขึ้นมา</li><li>ติดตั้ง Driver แล้ว แต่ Windows 11 ไม่แสดงอุปกรณ์เป็น Printer</li><li>ลอง Windows Update แล้ว</li><li>ดาวน์โหลด Driver จากเว็บไซต์มาติดตั้งแล้ว</li><li>ลอง Add Printer แบบ Manual แล้ว</li><li>อัปเดต Firmware แล้ว</li></ul></div>
+  <div class="text-card"><div class="step">แนวทางแก้ไข</div><h2>ลบของเดิมให้หมดก่อน</h2><p>ลบ Printer จาก <strong>Devices and Printers</strong> และลบอุปกรณ์ที่เกี่ยวข้องจาก <strong>Device Manager</strong> จากนั้น Restart ก่อนเข้าสู่ขั้นตอน Driver และ HP Smart Install</p><div class="note">ลำดับนี้เป็นขั้นตอนหลักของการแก้ปัญหา</div></div>
+ </div>
+</section>
+<section class="slide">
+ <div><div class="kicker">02 / Step 1</div><div class="title">ลบ Printer จาก Devices and Printers</div></div>
+ <div class="content-grid"><div class="image-card"><img src="5.jpg" alt="ลบ Printer จาก Devices and Printers"></div><div class="text-card"><div class="step">STEP 01</div><h2>ลบ Printer เดิมออกจาก Windows</h2><p>เปิด <strong>Control Panel → Devices and Printers</strong></p><ul><li>ค้นหา HP LaserJet P1102</li><li>คลิกขวา → <strong>Remove device</strong></li><li>หากมี P1102 ซ้ำหลายรายการ ให้ลบออกทั้งหมด</li></ul></div></div>
+</section>
+<section class="slide">
+ <div><div class="kicker">03 / Step 2</div><div class="title">ลบอุปกรณ์จาก Device Manager</div></div>
+ <div class="content-grid"><div class="image-card"><img src="6.jpg" alt="ลบอุปกรณ์จาก Device Manager"></div><div class="text-card"><div class="step">STEP 02</div><h2>Uninstall อุปกรณ์ HP P1102 ที่เกี่ยวข้อง</h2><p>คลิกขวา <strong>Start → Device Manager</strong> แล้วตรวจสอบอุปกรณ์ที่เกี่ยวข้อง</p><ul><li>Printers</li><li>Print queues</li><li>Universal Serial Bus controllers</li><li>Other devices</li><li>คลิกขวาอุปกรณ์ที่เกี่ยวข้อง → <strong>Uninstall device</strong></li><li>หากมีตัวเลือก <strong>Attempt to remove the driver for this device</strong> ให้เลือกด้วย</li></ul></div></div>
+</section>
+<section class="slide">
+ <div><div class="kicker">04 / Step 3–4</div><div class="title">ถอด USB และ Restart Windows</div></div>
+ <div class="content-grid"><div class="text-card"><div class="step">STEP 03</div><h2>ถอดสาย USB</h2><p>หลังลบ Printer และอุปกรณ์จาก Device Manager แล้ว ให้ถอดสาย USB ของ HP LaserJet P1102 ออกจากคอมพิวเตอร์ และยังไม่ต้องเสียบกลับ</p></div><div class="text-card"><div class="step">STEP 04</div><h2>Restart Windows 11</h2><p>Restart คอมพิวเตอร์ 1 ครั้ง เพื่อให้ Windows โหลดระบบใหม่และเคลียร์การเชื่อมต่อของอุปกรณ์เดิม</p></div></div>
+</section>
+<section class="slide">
+ <div><div class="kicker">05 / Step 5</div><div class="title">ดาวน์โหลดและแตกไฟล์ Driver</div></div>
+ <div class="content-grid"><div class="image-card"><img src="01.jpg" alt="ดาวน์โหลดและแตกไฟล์ Driver"></div><div class="text-card"><div class="step">STEP 05</div><h2>ดาวน์โหลด Driver หลัง Restart</h2><p>ดาวน์โหลด Driver สำหรับ HP LaserJet P1102 แล้วแตกไฟล์ออกมา เตรียมโฟลเดอร์สำหรับเข้าสู่ Utility</p><ul><li>ดาวน์โหลด Driver ให้ตรงกับรุ่น P1102</li><li>แตกไฟล์ Driver</li><li>เตรียมโฟลเดอร์ที่แตกไฟล์ไว้สำหรับขั้นตอนถัดไป</li></ul></div></div>
+</section>
+<section class="slide">
+ <div><div class="kicker">06 / Step 6</div><div class="title">Disable HP Smart Install</div><div class="subtitle">ต้องทำขั้นตอนนี้ก่อนเริ่มติดตั้ง Driver ใหม่</div></div>
+ <div class="content-grid"><div class="image-card"><img src="2.jpg" alt="HP Smart Install Control Utility"></div><div class="text-card"><div class="step">STEP 06</div><h2>ใช้ HP Smart Install Control Utility</h2><ol><li>เข้าไปยัง Driver ที่ดาวน์โหลดมาและแตกไฟล์ไว้</li><li>เปิดโฟลเดอร์ <strong>Utility</strong> หรือ <strong>UTIL</strong></li><li>เปิดโปรแกรม <strong>HP Smart Install Control Utility</strong></li><li>เชื่อมต่อสาย USB ของ HP LaserJet P1102 เข้ากับคอมพิวเตอร์</li><li>โปรแกรมจะค้นหา Printer โดยอัตโนมัติ</li><li>เลือก HP LaserJet P1102 เครื่องที่มีปัญหา</li><li>กด <strong>Next</strong></li><li>กด <strong>Disable</strong></li></ol></div></div>
+</section>
+<section class="slide">
+ <div><div class="kicker">06 / Step 6 — CHECK</div><div class="title">ตรวจสอบสถานะให้เป็นสีแดง</div></div>
+ <div class="content-grid"><div class="text-card"><div class="step">หลังจากกด Disable</div><h2>รอจนสถานะเป็นสีแดง 🔴</h2><p>เมื่อสถานะของเครื่องเปลี่ยนเป็น <strong>สีแดง</strong> แล้ว ให้ปิดโปรแกรมได้เลย</p><div class="note">ไม่ต้องทำขั้นตอนอื่นเพิ่มเติมใน Utility เมื่อสถานะเป็นสีแดง</div></div><div class="image-card"><img src="3.jpg" alt="สถานะ HP Smart Install เป็นสีแดง"></div></div>
+</section>
+<section class="slide">
+ <div><div class="kicker">07 / Step 7</div><div class="title">ติดตั้ง Driver ใหม่</div><div class="subtitle">เมื่อ Disable HP Smart Install และสถานะเป็นสีแดงแล้ว จึงเริ่มติดตั้ง Driver</div></div>
+ <div class="content-grid"><div class="text-card"><div class="step">STEP 07</div><h2>ติดตั้ง Driver ตามขั้นตอนปกติ</h2><ul><li>กลับไปยังโฟลเดอร์ Driver ที่แตกไฟล์ไว้</li><li>เปิดไฟล์ <strong>Setup / Installer</strong></li><li>ดำเนินการติดตั้งตามขั้นตอนของโปรแกรม</li><li>รอจนการติดตั้งเสร็จสมบูรณ์</li><li>ตรวจสอบว่า Windows 11 มองเห็น HP LaserJet P1102 เป็น Printer</li></ul></div><div class="image-card"><div style="font-size:110px">🖨️</div></div></div>
+</section>
+<section class="slide">
+ <div><div class="kicker">08 / Test</div><div class="title">ตรวจสอบและทดสอบ Printer</div></div>
+ <div class="content-grid"><div class="image-card"><img src="5.jpg" alt="ตรวจสอบ Printer"></div><div class="text-card"><div class="step">FINAL CHECK</div><h2>ตรวจสอบผลการติดตั้ง</h2><ul><li>เปิด <strong>Settings → Bluetooth & devices → Printers & scanners</strong></li><li>ตรวจสอบว่าพบ <strong>HP LaserJet P1102</strong></li><li>ตรวจสอบ Device Manager ว่าไม่มีเครื่องหมาย <strong>!</strong> สีเหลือง</li><li>สั่ง <strong>Print Test Page</strong> เพื่อทดสอบการพิมพ์</li></ul></div></div>
+</section>
+<section class="slide">
+ <div><div class="kicker">09 / Summary</div><div class="title">สรุปลำดับการแก้ไข</div><div class="subtitle">ทำตามลำดับนี้โดยไม่ข้ามขั้นตอนสำคัญ</div></div>
+ <div class="overview">
+  <div class="ov"><div class="num">01</div><h3>Remove Printer</h3><p>ลบจาก Devices and Printers</p></div>
+  <div class="ov"><div class="num">02</div><h3>Device Manager</h3><p>Uninstall อุปกรณ์ที่เกี่ยวข้อง</p></div>
+  <div class="ov"><div class="num">03</div><h3>ถอด USB</h3><p>ถอดสาย USB ออกจาก PC</p></div>
+  <div class="ov"><div class="num">04</div><h3>Restart</h3><p>Restart Windows 11</p></div>
+  <div class="ov"><div class="num">05</div><h3>Driver</h3><p>ดาวน์โหลดและแตกไฟล์</p></div>
+  <div class="ov"><div class="num">06</div><h3>Disable</h3><p>Utility → Next → Disable → รอสีแดง 🔴</p></div>
+  <div class="ov"><div class="num">07</div><h3>Install</h3><p>ติดตั้ง Driver ใหม่</p></div>
+  <div class="ov"><div class="num">08</div><h3>Test</h3><p>ตรวจสอบและ Print Test Page</p></div>
+ </div>
+</section>
+<section class="slide">
+ <div><div class="kicker">10 / Video</div><div class="title">วิดีโอสาธิต</div><div class="subtitle">เปิดดูวิดีโอประกอบเพื่อทำตามขั้นตอนจริง</div></div>
+ <div class="video-wrap"><div class="video-card"><video controls preload="metadata"><source src="ปัญหา ลง Driver Printer HP P1102 บน windows 10 ไม่ได้.mp4" type="video/mp4">เบราว์เซอร์นี้ไม่รองรับวิดีโอ</video><div class="video-title">วิดีโอต้นฉบับ: ปัญหา ลง Driver Printer HP P1102 บน Windows 10 ไม่ได้.mp4</div></div></div>
+</section>
+<section class="slide cover">
+ <div class="content"><div class="kicker">11 / Final</div><div class="title">จบขั้นตอนการแก้ไข</div><div class="subtitle">ลบอุปกรณ์เดิม → Restart → ดาวน์โหลด/แตก Driver → Utility → Next → Disable → 🔴 สีแดง → ปิดโปรแกรม → ติดตั้ง Driver ใหม่ → ทดสอบ Print</div><div class="badge">หัวใจสำคัญ: ต้อง Disable HP Smart Install และรอให้สถานะเป็นสีแดงก่อนติดตั้ง Driver ใหม่</div></div>
+</section>
+</div>
+
+<div class="footer"><div class="progress"><i id="bar"></i></div><div class="counter" id="counter">01 / 09</div></div>
+<div class="nav"><button id="prev" aria-label="ก่อนหน้า">‹</button><button id="next" aria-label="ถัดไป">›</button></div>
+<script>
+const slides=[...document.querySelectorAll('.slide')];let current=0;
+function show(n){current=(n+slides.length)%slides.length;slides.forEach((s,i)=>s.classList.toggle('active',i===current));document.getElementById('bar').style.width=((current+1)/slides.length*100)+'%';document.getElementById('counter').textContent=String(current+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0')}
+function next(){show(current+1)}function prev(){show(current-1)}
+document.getElementById('next').onclick=next;document.getElementById('prev').onclick=prev;
+window.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();next()}else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();prev()}else if(e.key.toLowerCase()==='f'){document.documentElement.requestFullscreen?.()}});
+let sx=null;window.addEventListener('touchstart',e=>sx=e.touches[0].clientX);window.addEventListener('touchend',e=>{if(sx===null)return;let dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)(dx<0?next:prev)();sx=null});show(0);
+</script>
+</body>
+</html>
